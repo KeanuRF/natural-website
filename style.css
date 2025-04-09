@@ -85,8 +85,9 @@ body {
 /* Contenedor principal */
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado de height a min-height */
     width: 100%;
+    max-height: 100vh; /* Asegurar que no se desborde */
 }
 
 /* Sección izquierda (imagen de fondo) */
@@ -94,6 +95,7 @@ body {
     width: 50%;
     background: url('images/hojas.jpg') no-repeat center center;
     background-size: cover;
+    background-attachment: fixed; /* Asegurar que el fondo se mantenga fijo */
 }
 
 /* Sección derecha (contenido) */
@@ -478,7 +480,7 @@ html {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    padding-bottom: 20px; /* Ajustado para eliminar espacio innecesario */
+    padding-bottom: 20px;
 }
 
 .about-text {
@@ -949,6 +951,40 @@ img {
 
 /* Media Queries para Responsividad Mejorada */
 
+/* Pantallas entre 1200px y 1440px (MacBook Air) */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .container {
+        min-height: 100vh;
+        max-height: none; /* Permitir que se ajuste al contenido */
+    }
+
+    .left-section {
+        background-attachment: fixed;
+    }
+
+    .right-section {
+        padding: 0 60px; /* Reducir el padding para que el texto no se vea apretado */
+    }
+
+    .title {
+        font-size: 80px; /* Reducir el tamaño del título para que se ajuste mejor */
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 14px;
+        max-width: 400px; /* Limitar el ancho del texto para mejor legibilidad */
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
 /* Pantallas menores a 1200px */
 @media (max-width: 1200px) {
     .container {
@@ -989,7 +1025,7 @@ img {
     }
 
     .left-section {
-        background-attachment: scroll; /* Evitar problemas con el fondo en móviles */
+        background-attachment: scroll;
     }
 
     .right-section {
@@ -1123,7 +1159,7 @@ img {
     /* Secciones generales */
     .section {
         padding: 60px 0;
-        min-height: auto; /* Permitir que las secciones se ajusten al contenido */
+        min-height: auto;
     }
 
     .section h2 {
