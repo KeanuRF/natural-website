@@ -964,31 +964,41 @@ img {
         min-height: 100vh;
         flex-direction: row !important; /* Forzar diseño horizontal */
         display: flex !important; /* Asegurar que flex se aplique */
-    }
-
-    .left-section,
-    .right-section {
-        width: 50% !important; /* Mantener proporciones */
-        min-height: 100vh; /* Asegurar que ambas secciones ocupen toda la altura */
+        position: relative; /* Asegurar que el contenedor tenga un contexto de posicionamiento */
     }
 
     .left-section {
-        display: block !important; /* Asegurar que la sección de las hojas sea visible */
+        width: 50% !important; /* Mantener proporciones */
+        min-height: 100vh; /* Asegurar que ocupe toda la altura */
         background: url('images/hojas.jpg') no-repeat center center;
         background-size: cover;
+        display: block !important; /* Asegurar que la sección de las hojas sea visible */
+        position: absolute; /* Forzar que .left-section no interfiera con el contenido */
+        left: 0;
+        top: 0;
+        z-index: 0; /* Colocar .left-section detrás de .right-section */
+        overflow: hidden; /* Evitar desbordamiento */
     }
 
     .right-section {
+        width: 50% !important; /* Mantener proporciones */
+        min-height: 100vh; /* Asegurar que ocupe toda la altura */
         display: flex !important; /* Asegurar que el contenido esté en la parte blanca */
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         padding: 0 40px; /* Reducir padding */
         background-color: #F5F5F5; /* Fondo blanco */
+        position: relative; /* Asegurar que el contenido se mantenga en su lugar */
+        z-index: 1; /* Colocar .right-section por encima de .left-section */
+        margin-left: 50%; /* Asegurar que .right-section comience después de .left-section */
     }
 
     .title {
         font-size: 60px; /* Reducir más el tamaño del título */
+        color: #000; /* Forzar color negro para evitar que se mezcle con el fondo */
+        background: none !important; /* Eliminar el fondo de hojas del título para evitar confusión */
+        -webkit-background-clip: initial !important; /* Desactivar el efecto de fondo en Safari */
     }
 
     .subtitle {
