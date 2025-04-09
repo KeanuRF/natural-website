@@ -92,9 +92,9 @@ body {
 /* Contenedor principal */
 .container {
     display: flex;
-    min-height: 100vh; /* Usar min-height para evitar problemas con vh */
+    min-height: 100vh;
     width: 100%;
-    flex-direction: row;
+    flex-direction: row; /* Restaurar diseño horizontal */
 }
 
 /* Sección izquierda (imagen de fondo) */
@@ -110,8 +110,8 @@ body {
     background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrar verticalmente */
-    align-items: flex-start; /* Alinear a la izquierda */
+    justify-content: center;
+    align-items: flex-start;
     padding: 0 60px;
 }
 
@@ -962,19 +962,29 @@ img {
 @media (min-width: 1200px) and (max-width: 1440px) {
     .container {
         min-height: 100vh;
-        flex-direction: row; /* Forzar diseño horizontal */
+        flex-direction: row !important; /* Forzar diseño horizontal */
+        display: flex !important; /* Asegurar que flex se aplique */
     }
 
     .left-section,
     .right-section {
-        width: 50%; /* Mantener proporciones */
+        width: 50% !important; /* Mantener proporciones */
         min-height: 100vh; /* Asegurar que ambas secciones ocupen toda la altura */
     }
 
+    .left-section {
+        display: block !important; /* Asegurar que la sección de las hojas sea visible */
+        background: url('images/hojas.jpg') no-repeat center center;
+        background-size: cover;
+    }
+
     .right-section {
+        display: flex !important; /* Asegurar que el contenido esté en la parte blanca */
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         padding: 0 40px; /* Reducir padding */
-        justify-content: center; /* Centrar verticalmente */
-        align-items: flex-start; /* Alinear a la izquierda */
+        background-color: #F5F5F5; /* Fondo blanco */
     }
 
     .title {
@@ -1548,10 +1558,10 @@ img {
 @supports (-webkit-overflow-scrolling: touch) {
     .container {
         min-height: 100vh;
-        height: auto; /* Permitir que la altura se ajuste al contenido */
+        height: auto;
     }
 
     .left-section {
-        background-attachment: scroll; /* Evitar problemas con fixed en Safari */
+        background-attachment: scroll;
     }
 }
