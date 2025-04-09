@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%; /* Asegurar que el contenedor padre tenga altura completa */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #000;
@@ -85,9 +91,9 @@ body {
 /* Contenedor principal */
 .container {
     display: flex;
-    min-height: 100vh; /* Cambiado de height a min-height */
+    height: 100%; /* Cambiado de min-height: 100vh a height: 100% */
+    min-height: 100vh; /* Asegurar una altura mínima */
     width: 100%;
-    max-height: 100vh; /* Asegurar que no se desborde */
 }
 
 /* Sección izquierda (imagen de fondo) */
@@ -95,7 +101,7 @@ body {
     width: 50%;
     background: url('images/hojas.jpg') no-repeat center center;
     background-size: cover;
-    background-attachment: fixed; /* Asegurar que el fondo se mantenga fijo */
+    background-attachment: fixed;
 }
 
 /* Sección derecha (contenido) */
@@ -105,13 +111,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 80px;
+    align-items: flex-start; /* Alinear el contenido a la izquierda */
+    padding: 0 60px; /* Reducir el padding para mejor ajuste */
     position: relative;
 }
 
 /* Título con efecto de transparencia */
 .title {
-    font-size: 100px;
+    font-size: 90px; /* Reducir el tamaño base del título */
     font-weight: 700;
     background: url('images/hojas.jpg') no-repeat center center;
     background-size: cover;
@@ -123,7 +130,7 @@ body {
 
 /* Subtítulo */
 .subtitle {
-    font-size: 24px;
+    font-size: 22px; /* Reducir el tamaño base del subtítulo */
     font-weight: 700;
     margin-top: 20px;
     color: #4A8B5C;
@@ -132,10 +139,11 @@ body {
 /* Descripción */
 .description {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px; /* Reducir el tamaño base de la descripción */
     margin-top: 20px;
     line-height: 1.6;
     color: #333;
+    max-width: 400px; /* Limitar el ancho para mejor legibilidad */
 }
 
 /* Botón CTA */
@@ -954,8 +962,8 @@ img {
 /* Pantallas entre 1200px y 1440px (MacBook Air) */
 @media (min-width: 1200px) and (max-width: 1440px) {
     .container {
+        height: 100%;
         min-height: 100vh;
-        max-height: none; /* Permitir que se ajuste al contenido */
     }
 
     .left-section {
@@ -963,20 +971,22 @@ img {
     }
 
     .right-section {
-        padding: 0 60px; /* Reducir el padding para que el texto no se vea apretado */
+        padding: 0 40px; /* Reducir aún más el padding */
+        justify-content: center; /* Centrar verticalmente */
+        align-items: flex-start; /* Alinear a la izquierda */
     }
 
     .title {
-        font-size: 80px; /* Reducir el tamaño del título para que se ajuste mejor */
+        font-size: 70px; /* Reducir más el tamaño del título */
     }
 
     .subtitle {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .description {
-        font-size: 14px;
-        max-width: 400px; /* Limitar el ancho del texto para mejor legibilidad */
+        font-size: 13px;
+        max-width: 350px;
     }
 
     .cta-button {
@@ -996,7 +1006,7 @@ img {
     }
 
     .title {
-        font-size: 90px;
+        font-size: 80px;
     }
 
     .section-content {
@@ -1530,5 +1540,17 @@ img {
     .title {
         background-image: url('images/hojas.jpg');
         background-size: cover;
+    }
+}
+
+/* Ajustes específicos para Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+    .container {
+        height: 100vh; /* Forzar altura en Safari */
+        min-height: -webkit-fill-available; /* Ajuste para Safari en iOS/macOS */
+    }
+
+    .left-section {
+        background-attachment: scroll; /* Evitar problemas con background-attachment: fixed en Safari */
     }
 }
