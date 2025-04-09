@@ -200,8 +200,49 @@ body {
 
 /* Ajustes específicos para el botón de envío en el formulario */
 .submit-button {
-    width: 100%;
+    background: #4A8B5C;
+    color: white;
+    border: none;
     padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(74, 139, 92, 0.2);
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 139, 92, 0.3);
+    background: linear-gradient(45deg, #4A8B5C, #2c5338);
+}
+
+.submit-button span {
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.submit-button i {
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover i {
+    transform: translateX(3px);
+}
+
+.submit-button::before {
+    display: none;
 }
 
 /* Estilos para secciones adicionales */
@@ -295,7 +336,7 @@ html {
 
 /* Footer Styles */
 .footer {
-    background: linear-gradient(to right, #2c5338, #4A8B5C);
+    background: linear-gradient(45deg, #2c5338, #4A8B5C);
     color: white;
     padding: 60px 0 20px;
     position: relative;
@@ -307,9 +348,9 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #4A8B5C, #2c5338, #4A8B5C);
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
 }
 
 .footer-content {
@@ -322,42 +363,43 @@ html {
 }
 
 .footer-section h3 {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    background: linear-gradient(45deg, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
     position: relative;
     display: inline-block;
 }
 
-.footer-section h3::after {
+.footer-section h4::after {
     content: '';
     position: absolute;
-    bottom: -8px;
     left: 0;
+    bottom: -8px;
     width: 40px;
     height: 2px;
-    background: #fff;
+    background: #4A8B5C;
     transition: width 0.3s ease;
 }
 
-.footer-section:hover h3::after {
+.footer-section:hover h4::after {
     width: 100%;
-}
-
-.footer-section h4 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #e0e0e0;
 }
 
 .footer-section p {
     color: #e0e0e0;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .footer-section ul {
@@ -367,11 +409,13 @@ html {
 
 .footer-section ul li {
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
     transition: transform 0.3s ease;
 }
 
 .footer-section ul li:hover {
-    transform: translateX(5px);
+    transform: translateX(10px);
 }
 
 .footer-section a {
@@ -384,50 +428,6 @@ html {
     color: #fff;
 }
 
-/* Estilos específicos para la información de contacto */
-.contact-info li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.contact-info i {
-    width: 25px;
-    height: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-
-.contact-info li:hover i {
-    background: #fff;
-    color: #4A8B5C;
-    transform: scale(1.1);
-}
-
-.contact-info span {
-    color: #e0e0e0;
-    font-weight: 500;
-}
-
-.contact-info a {
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* Estilos para los enlaces sociales */
 .social-links {
     display: flex;
     gap: 15px;
@@ -435,29 +435,37 @@ html {
 }
 
 .social-link {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-size: 18px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-link:hover {
     background: #fff;
+    transform: translateY(-5px);
+}
+
+.social-link:hover i {
     color: #4A8B5C;
-    transform: translateY(-3px);
+}
+
+.social-link i {
+    font-size: 18px;
+    color: #fff;
+    transition: color 0.3s ease;
 }
 
 .footer-bottom {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
@@ -470,7 +478,7 @@ html {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    padding-bottom: 100px; /* Added space for the number */
+    padding-bottom: 20px; /* Ajustado para eliminar espacio innecesario */
 }
 
 .about-text {
@@ -527,8 +535,8 @@ html {
 }
 
 .feature i {
-    font-size: 32px;
     color: #4A8B5C;
+    font-size: 32px;
     margin-bottom: 15px;
 }
 
@@ -557,9 +565,9 @@ html {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateZ(0); /* Activar aceleración por hardware */
-    backface-visibility: hidden; /* Mejorar rendimiento */
-    will-change: transform; /* Optimizar animaciones */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
@@ -688,22 +696,19 @@ html {
 .service-icon {
     width: 80px;
     height: 80px;
-    margin: 0 auto 25px;
     background: rgba(74, 139, 92, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-icon {
-    transform: rotateY(180deg);
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
 }
 
 .service-icon i {
     font-size: 32px;
     color: #4A8B5C;
+    transition: all 0.3s ease;
 }
 
 .service-card h4 {
@@ -757,30 +762,13 @@ html {
 
 /* Contact Section Styles */
 .contact-container {
-    max-width: 600px;
-    margin: 50px auto 0;
-    position: relative;
-    padding: 20px;
-}
-
-.contact-container::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    bottom: -10px;
-    left: -10px;
-    background: linear-gradient(45deg, #4A8B5C, #2c5338);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0.1;
-    transform: scale(0.98);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.contact-container:hover::before {
-    transform: scale(1);
-    opacity: 0.15;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
 }
 
 .contact-form {
@@ -788,76 +776,96 @@ html {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
     position: relative;
-    overflow: hidden;
 }
 
-.contact-form::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.section#contact {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.section#contact .section-content {
     width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, #4A8B5C, #2c5338);
+}
+
+.section#contact h2,
+.section#contact h3,
+.section#contact .section-description {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section#contact .section-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 .form-group {
     margin-bottom: 25px;
-    position: relative;
+    width: 100%;
+    max-width: 400px;
 }
 
 .input-container {
     position: relative;
     margin-top: 15px;
-}
-
-.input-container i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    pointer-events: none;
+    width: 100%;
 }
 
 .input-container input,
 .input-container textarea {
     width: 100%;
-    padding: 15px 15px 15px 45px;
+    padding: 15px;
     border: none;
-    border-radius: 12px;
+    background: #f8f8f8;
+    border-radius: 8px;
     font-size: 15px;
     color: #333;
-    background: #f8f8f8;
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: left;
 }
 
 .input-container textarea {
-    height: 150px;
-    resize: none;
-    padding-top: 20px;
-    line-height: 1.6;
+    min-height: 150px;
+    resize: vertical;
+    text-align: left;
+}
+
+.input-container i {
+    display: none;
 }
 
 .input-container label {
     position: absolute;
-    left: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 15px;
-    color: #999;
-    pointer-events: none;
+    left: 0;
+    right: 0;
+    top: -20px;
+    color: #4A8B5C;
+    font-size: 14px;
+    text-align: left;
     transition: all 0.3s ease;
 }
 
-.input-container textarea ~ label {
-    top: 20px;
-    transform: none;
+.input-container input:focus,
+.input-container textarea:focus {
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(74, 139, 92, 0.2);
+}
+
+.input-container input:focus + i,
+.input-container textarea:focus + i {
+    color: #4A8B5C;
+}
+
+.input-container input:focus ~ .input-line,
+.input-container textarea:focus ~ .input-line {
+    transform: scaleX(1);
 }
 
 .input-line {
@@ -872,9 +880,6 @@ html {
     transform-origin: left;
 }
 
-/* Active states */
-.input-container input:focus ~ label,
-.input-container textarea:focus ~ label,
 .input-container input:not(:placeholder-shown) ~ label,
 .input-container textarea:not(:placeholder-shown) ~ label {
     top: -12px;
@@ -885,81 +890,55 @@ html {
     padding: 0 5px;
 }
 
-.input-container input:focus ~ i,
-.input-container textarea:focus ~ i {
-    color: #4A8B5C;
-}
-
-.input-container input:focus ~ .input-line,
-.input-container textarea:focus ~ .input-line {
-    transform: scaleX(1);
-}
-
-.input-container input:focus,
-.input-container textarea:focus {
-    background: white;
-    box-shadow: 0 0 0 3px rgba(74, 139, 92, 0.1);
+.input-container textarea ~ label {
+    top: 20px;
+    transform: none;
 }
 
 .submit-button {
-    background: linear-gradient(45deg, #4A8B5C, #2c5338);
+    background: #4A8B5C;
     color: white;
     border: none;
     padding: 15px 30px;
-    border-radius: 30px;
+    border-radius: 25px;
     font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 5px 15px rgba(74, 139, 92, 0.3);
-}
-
-.submit-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #2c5338, #4A8B5C);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    max-width: 400px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(74, 139, 92, 0.2);
 }
 
 .submit-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(74, 139, 92, 0.4);
+    box-shadow: 0 6px 20px rgba(74, 139, 92, 0.3);
+    background: linear-gradient(45deg, #4A8B5C, #2c5338);
 }
 
-.submit-button:hover::before {
-    opacity: 1;
-}
-
-.submit-button span,
-.submit-button i {
-    position: relative;
+.submit-button span {
     z-index: 1;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.submit-button:hover span {
-    transform: translateX(-3px);
+.submit-button i {
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .submit-button:hover i {
     transform: translateX(3px);
 }
 
-.submit-button i {
-    font-size: 18px;
+.submit-button::before {
+    display: none;
 }
 
 /* Asegurar que las imágenes sean responsivas */
@@ -987,6 +966,14 @@ img {
     .section-content {
         padding: 0 15px;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
 }
 
 /* Pantallas menores a 992px */
@@ -999,6 +986,10 @@ img {
     .right-section {
         width: 100%;
         height: 50vh;
+    }
+
+    .left-section {
+        background-attachment: scroll; /* Evitar problemas con el fondo en móviles */
     }
 
     .right-section {
@@ -1047,7 +1038,11 @@ img {
         gap: 20px;
     }
 
-    .product-grid,
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1065,6 +1060,35 @@ img {
 
 /* Pantallas menores a 768px */
 @media (max-width: 768px) {
+    /* Navegación */
+    .top-nav {
+        right: 0;
+        left: 0;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .top-nav li {
+        display: inline-block;
+    }
+
+    .top-nav a {
+        font-size: 11px;
+    }
+
+    .top-nav .nav-number {
+        font-size: 9px;
+        margin-right: 8px;
+    }
+
+    /* Sección Home */
     .container {
         flex-direction: column;
     }
@@ -1096,26 +1120,10 @@ img {
         font-size: 14px;
     }
 
-    .top-nav {
-        right: 10px;
-        padding: 15px;
-    }
-
-    .top-nav ul {
-        gap: 15px;
-    }
-
-    .top-nav a {
-        font-size: 11px;
-    }
-
-    .top-nav .nav-number {
-        font-size: 9px;
-        margin-right: 8px;
-    }
-
+    /* Secciones generales */
     .section {
         padding: 60px 0;
+        min-height: auto; /* Permitir que las secciones se ajusten al contenido */
     }
 
     .section h2 {
@@ -1126,6 +1134,7 @@ img {
         font-size: 15px;
     }
 
+    /* About */
     .about-text h2 {
         font-size: 36px;
     }
@@ -1134,143 +1143,13 @@ img {
         font-size: 20px;
     }
 
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-
-    .product-grid,
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .product-image {
-        height: 250px;
-    }
-
-    .service-card {
-        padding: 30px 20px;
-    }
-
-    .contact-form {
-        padding: 30px 20px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .contact-info li {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer {
-        padding: 40px 0 20px;
-    }
-}
-
-/* Pantallas menores a 576px */
-@media (max-width: 576px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .left-section,
-    .right-section {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .right-section {
-        padding: 20px;
-    }
-
-    .title {
-        font-size: 42px;
-    }
-
-    .subtitle {
-        font-size: 18px;
-        margin-top: 15px;
-    }
-
-    .description {
-        font-size: 13px;
-        margin-top: 15px;
-    }
-
-    .cta-button {
-        padding: 8px 18px;
-        font-size: 13px;
-    }
-
-    .top-nav {
-        right: 0;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.9);
-        width: 100%;
-        text-align: center;
-    }
-
-    .top-nav ul {
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .top-nav li {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .top-nav .nav-number {
-        font-size: 8px;
-        margin-right: 0;
-        margin-bottom: 5px;
-        opacity: 1;
-    }
-
-    .top-nav a {
-        font-size: 10px;
-        padding: 3px 0;
-    }
-
-    .section {
-        padding: 40px 0;
-    }
-
-    .section-content {
-        padding: 0 10px;
-    }
-
-    .section h2 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-    .section p {
-        font-size: 14px;
-    }
-
-    .about-text h2 {
-        font-size: 30px;
-    }
-
-    .about-text h3 {
-        font-size: 18px;
-    }
-
     .about-description {
         font-size: 14px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .feature {
@@ -1289,13 +1168,15 @@ img {
         font-size: 13px;
     }
 
+    /* Products */
     .product-grid {
+        grid-template-columns: 1fr;
         gap: 15px;
         margin-top: 30px;
     }
 
     .product-image {
-        height: 200px;
+        height: 250px;
     }
 
     .product-info {
@@ -1319,7 +1200,9 @@ img {
         font-size: 14px;
     }
 
+    /* Services */
     .services-grid {
+        grid-template-columns: 1fr;
         gap: 15px;
         margin-top: 30px;
     }
@@ -1354,8 +1237,10 @@ img {
         font-size: 14px;
     }
 
+    /* Contact */
     .contact-container {
         padding: 10px;
+        min-height: auto;
     }
 
     .contact-form {
@@ -1368,17 +1253,11 @@ img {
 
     .input-container input,
     .input-container textarea {
-        padding: 12px 12px 12px 40px;
-        font-size: 14px;
-    }
-
-    .input-container i {
-        left: 12px;
+        padding: 12px;
         font-size: 14px;
     }
 
     .input-container label {
-        left: 40px;
         font-size: 14px;
     }
 
@@ -1390,45 +1269,91 @@ img {
         padding: 12px 25px;
         font-size: 14px;
     }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-section ul li {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
 }
 
-/* Pantallas menores a 400px */
-@media (max-width: 400px) {
+/* Pantallas menores a 480px */
+@media (max-width: 480px) {
+    /* Navegación */
+    .top-nav {
+        padding: 8px;
+    }
+
+    .top-nav ul {
+        gap: 10px;
+    }
+
+    .top-nav a {
+        font-size: 10px;
+    }
+
+    .top-nav .nav-number {
+        font-size: 8px;
+        margin-right: 5px;
+    }
+
+    /* Sección Home */
     .title {
-        font-size: 36px;
+        font-size: 48px;
     }
 
     .subtitle {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .description {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .cta-button {
         padding: 8px 15px;
-        font-size: 12px;
-    }
-
-    .top-nav ul {
-        gap: 8px;
-    }
-
-    .top-nav a {
-        font-size: 9px;
-    }
-
-    .section h2 {
-        font-size: 26px;
-    }
-
-    .section p {
         font-size: 13px;
     }
 
+    /* Secciones generales */
+    .section h2 {
+        font-size: 32px;
+    }
+
+    .section p {
+        font-size: 14px;
+    }
+
+    /* About */
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    .about-text h3 {
+        font-size: 18px;
+    }
+
+    .about-description {
+        font-size: 13px;
+    }
+
+    /* Products */
     .product-image {
-        height: 180px;
+        height: 200px;
     }
 
     .product-info h4 {
@@ -1439,6 +1364,7 @@ img {
         font-size: 18px;
     }
 
+    /* Services */
     .service-card {
         padding: 20px 10px;
     }
@@ -1456,23 +1382,117 @@ img {
         font-size: 16px;
     }
 
+    /* Contact */
     .contact-form {
         padding: 15px;
     }
 
     .input-container input,
     .input-container textarea {
-        padding: 10px 10px 10px 35px;
+        padding: 10px;
         font-size: 13px;
     }
 
-    .input-container i {
-        left: 10px;
+    .input-container label {
+        font-size: 13px;
+    }
+}
+
+/* Pantallas menores a 360px (dispositivos muy pequeños) */
+@media (max-width: 360px) {
+    /* Navegación */
+    .top-nav ul {
+        gap: 8px;
+    }
+
+    .top-nav a {
+        font-size: 9px;
+    }
+
+    .top-nav .nav-number {
+        font-size: 7px;
+        margin-right: 4px;
+    }
+
+    /* Sección Home */
+    .title {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .cta-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Secciones generales */
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .section p {
+        font-size: 13px;
+    }
+
+    /* Products */
+    .product-image {
+        height: 180px;
+    }
+
+    .product-info h4 {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+
+    /* Services */
+    .service-card {
+        padding: 15px 8px;
+    }
+
+    .service-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .service-icon i {
+        font-size: 20px;
+    }
+
+    .service-card h4 {
+        font-size: 14px;
+    }
+
+    /* Contact */
+    .input-container input,
+    .input-container textarea {
+        padding: 8px;
         font-size: 12px;
     }
 
     .input-container label {
-        left: 35px;
-        font-size: 13px;
+        font-size: 12px;
+    }
+}
+
+/* Ajustes para pantallas de alta densidad (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .left-section {
+        background-image: url('images/hojas.jpg');
+        background-size: cover;
+    }
+
+    .title {
+        background-image: url('images/hojas.jpg');
+        background-size: cover;
     }
 }
