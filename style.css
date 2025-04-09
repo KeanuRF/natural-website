@@ -5,9 +5,10 @@
 }
 
 html, body {
-    height: 100%; /* Asegurar que el contenedor padre tenga altura completa */
+    height: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 body {
@@ -91,9 +92,9 @@ body {
 /* Contenedor principal */
 .container {
     display: flex;
-    height: 100%; /* Cambiado de min-height: 100vh a height: 100% */
-    min-height: 100vh; /* Asegurar una altura mínima */
+    min-height: 100vh; /* Usar min-height para evitar problemas con vh */
     width: 100%;
+    flex-direction: row;
 }
 
 /* Sección izquierda (imagen de fondo) */
@@ -101,7 +102,6 @@ body {
     width: 50%;
     background: url('images/hojas.jpg') no-repeat center center;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 /* Sección derecha (contenido) */
@@ -110,15 +110,14 @@ body {
     background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; /* Alinear el contenido a la izquierda */
-    padding: 0 60px; /* Reducir el padding para mejor ajuste */
-    position: relative;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: flex-start; /* Alinear a la izquierda */
+    padding: 0 60px;
 }
 
 /* Título con efecto de transparencia */
 .title {
-    font-size: 90px; /* Reducir el tamaño base del título */
+    font-size: 90px;
     font-weight: 700;
     background: url('images/hojas.jpg') no-repeat center center;
     background-size: cover;
@@ -130,7 +129,7 @@ body {
 
 /* Subtítulo */
 .subtitle {
-    font-size: 22px; /* Reducir el tamaño base del subtítulo */
+    font-size: 22px;
     font-weight: 700;
     margin-top: 20px;
     color: #4A8B5C;
@@ -139,11 +138,11 @@ body {
 /* Descripción */
 .description {
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px; /* Reducir el tamaño base de la descripción */
+    font-size: 15px;
     margin-top: 20px;
     line-height: 1.6;
     color: #333;
-    max-width: 400px; /* Limitar el ancho para mejor legibilidad */
+    max-width: 400px;
 }
 
 /* Botón CTA */
@@ -962,31 +961,33 @@ img {
 /* Pantallas entre 1200px y 1440px (MacBook Air) */
 @media (min-width: 1200px) and (max-width: 1440px) {
     .container {
-        height: 100%;
         min-height: 100vh;
+        flex-direction: row; /* Forzar diseño horizontal */
     }
 
-    .left-section {
-        background-attachment: fixed;
+    .left-section,
+    .right-section {
+        width: 50%; /* Mantener proporciones */
+        min-height: 100vh; /* Asegurar que ambas secciones ocupen toda la altura */
     }
 
     .right-section {
-        padding: 0 40px; /* Reducir aún más el padding */
+        padding: 0 40px; /* Reducir padding */
         justify-content: center; /* Centrar verticalmente */
         align-items: flex-start; /* Alinear a la izquierda */
     }
 
     .title {
-        font-size: 70px; /* Reducir más el tamaño del título */
+        font-size: 60px; /* Reducir más el tamaño del título */
     }
 
     .subtitle {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .description {
-        font-size: 13px;
-        max-width: 350px;
+        font-size: 12px;
+        max-width: 300px; /* Reducir el ancho para mejor ajuste */
     }
 
     .cta-button {
@@ -1546,11 +1547,11 @@ img {
 /* Ajustes específicos para Safari */
 @supports (-webkit-overflow-scrolling: touch) {
     .container {
-        height: 100vh; /* Forzar altura en Safari */
-        min-height: -webkit-fill-available; /* Ajuste para Safari en iOS/macOS */
+        min-height: 100vh;
+        height: auto; /* Permitir que la altura se ajuste al contenido */
     }
 
     .left-section {
-        background-attachment: scroll; /* Evitar problemas con background-attachment: fixed en Safari */
+        background-attachment: scroll; /* Evitar problemas con fixed en Safari */
     }
 }
