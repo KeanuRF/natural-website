@@ -204,20 +204,6 @@ body {
     padding: 15px 30px;
 }
 
-/* Número decorativo */
-.number {
-    position: absolute;
-    bottom: 50px;
-    right: 80px;
-    font-size: 120px;
-    font-weight: 700;
-    background: url('images/hojas.jpg') no-repeat center center;
-    background-size: cover;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
 /* Estilos para secciones adicionales */
 .section {
     min-height: 100vh;
@@ -243,21 +229,6 @@ body {
     line-height: 1.6;
     margin-bottom: 30px;
     max-width: 800px;
-}
-
-/* Número decorativo para cada sección */
-.section .number {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    font-size: 180px;
-    font-weight: 700;
-    background: url('images/hojas.jpg') no-repeat center center;
-    background-size: cover;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    z-index: 1;
 }
 
 /* Estilos para la cuadrícula de productos */
@@ -315,12 +286,6 @@ form button {
 
 form button:hover {
     background-color: #3A6B4A;
-}
-
-/* Número decorativo para cada sección */
-.section .right-number {
-    right: 20px;
-    bottom: 20px;
 }
 
 /* Scroll suave */
@@ -1019,18 +984,6 @@ img {
         font-size: 90px;
     }
 
-    .number {
-        font-size: 100px;
-        right: 60px;
-        bottom: 40px;
-    }
-
-    .section .number {
-        font-size: 150px;
-        right: 40px;
-        bottom: 40px;
-    }
-
     .section-content {
         padding: 0 15px;
     }
@@ -1064,12 +1017,6 @@ img {
         font-size: 15px;
     }
 
-    .number {
-        font-size: 80px;
-        right: 40px;
-        bottom: 30px;
-    }
-
     .top-nav {
         right: 20px;
     }
@@ -1093,12 +1040,6 @@ img {
 
     .section p {
         font-size: 16px;
-    }
-
-    .section .number {
-        font-size: 120px;
-        right: 30px;
-        bottom: 30px;
     }
 
     .about-features {
@@ -1155,12 +1096,6 @@ img {
         font-size: 14px;
     }
 
-    .number {
-        font-size: 70px;
-        right: 30px;
-        bottom: 20px;
-    }
-
     .top-nav {
         right: 10px;
         padding: 15px;
@@ -1189,12 +1124,6 @@ img {
 
     .section p {
         font-size: 15px;
-    }
-
-    .section .number {
-        font-size: 100px;
-        right: 20px;
-        bottom: 20px;
     }
 
     .about-text h2 {
@@ -1284,12 +1213,6 @@ img {
         font-size: 13px;
     }
 
-    .number {
-        font-size: 60px;
-        right: 20px;
-        bottom: 20px;
-    }
-
     .top-nav {
         right: 0;
         padding: 10px;
@@ -1336,12 +1259,6 @@ img {
 
     .section p {
         font-size: 14px;
-    }
-
-    .section .number {
-        font-size: 80px;
-        right: 15px;
-        bottom: 15px;
     }
 
     .about-text h2 {
@@ -1494,12 +1411,6 @@ img {
         font-size: 12px;
     }
 
-    .number {
-        font-size: 50px;
-        right: 15px;
-        bottom: 15px;
-    }
-
     .top-nav ul {
         gap: 8px;
     }
@@ -1514,12 +1425,6 @@ img {
 
     .section p {
         font-size: 13px;
-    }
-
-    .section .number {
-        font-size: 60px;
-        right: 10px;
-        bottom: 10px;
     }
 
     .product-image {
