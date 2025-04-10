@@ -998,10 +998,12 @@ img {
 
     .title {
         font-size: 60px;
-        color: #000;
-        background: none !important;
-        -webkit-background-clip: initial !important;
-        background-clip: initial !important; /* Add the standard property */
+        color: #000; /* Fallback color */
+        background: url('images/hojas.jpg') no-repeat center center;
+        background-size: cover;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
     .subtitle {
